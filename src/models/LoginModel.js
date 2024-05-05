@@ -37,6 +37,7 @@ class Login {
 
   async register() {
     this.valida();
+
     if(this.errors.length > 0) return;
 
     await this.userExists();
@@ -58,7 +59,8 @@ class Login {
   }
 
   valida() {
-    this.cleanUp();
+
+    this.cleanUp(); 
 
     if(!validator.isEmail(this.body.email)) this.errors.push('Email inválido');
 
@@ -66,15 +68,16 @@ class Login {
   }
 
   cleanUp() {
-    for(const key in this.body) {
-      if (typeof this.body[key] !== 'string') {
-        this.body[key] = '';
-      }
-    }
+    
+    // for(const key in this.body) {
+    //   if (typeof this.body[key] !== 'string') {
+    //     this.body[key] = '';
+    //   }
+    // }
 
     this.body = {
       email: this.body.email,
-      password: this.body.password
+      password: this.body.password[0]
     };
   }
 }
