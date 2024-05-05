@@ -23,7 +23,7 @@ app.use(express.json());
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
-
+app.use(express.static(path.resolve(__dirname, 'frontend')));
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 const sessionOptions = session({
@@ -47,10 +47,8 @@ app.use(csrfMiddleware);
 app.use(routes);
 
 app.on('pronto', () => {
-  app.listen(3000, () => {
+  app.listen(3200, () => {
     console.log('Servidor Online');
-    console.log('Acessar na porta http://localhost:3000');
+    console.log('Acessar na porta http://localhost:3200');
   });
 });
-
-

@@ -1,0 +1,500 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#cabecalho{
+  width: 100%;
+  background-color: #C3F250;
+  display: flex;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+#cabecalho > p {
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+}
+
+#cabecalho > p > img{
+  width: 27.42px;
+  height: 23px;
+}
+
+header{
+  width: 100%;
+  background-color: #35384B;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+#logo{
+  display: flex;
+  margin-left: 50px;
+  padding-top: 10px;
+}
+
+#logo > img{
+  margin-left: -12px;
+}
+
+#icone-nx{
+  width: 72px;
+  height: 50px;
+}
+
+#nome-nx{
+  width: 120px;
+  height: 60px;
+}
+
+#divBusca{
+  background-color:#E0EEEE;
+  border-radius:10px;
+  width: 40%;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+#txtBusca{
+  float:left;
+  background-color:transparent;
+  padding-left: 15px;
+  font-size: 12px;
+  border:none;
+  height: 40px;
+  width: 77%;
+}
+
+#btnBusca{
+  border:none;
+  float:left;
+  height: 40px;
+  border-radius:0 7px 7px 0;
+  width: 20%;
+  font-weight:bold;
+  background:#0AA6A6;
+}
+
+.opcoes-usuario > a{
+  display: flex;
+  margin-left: 45px;
+  margin-top: 20px;
+  color: #E0EEEE;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.opcoes-usuario > a > img{
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+nav{
+  width: 100%;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.menu{
+  width: 80%;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu > li{
+  position: relative;
+  float: left;
+  margin-left: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.menu li a{
+  color: #0AA6A6; 
+  text-decoration:none; 
+  padding: 5px 10px; 
+  display: block;
+}
+
+.menu li a:hover{
+  background: #C3F250;
+  color: #35384B;
+  text-shadow:0px 0px 5px #fff;
+}
+
+.menu li  ul{
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background-color: #fff;
+  display: none;
+}
+
+.menu li:hover ul, .menu li.over ul{
+  display:block;
+}
+
+.menu li ul li{
+  border:1px solid #c0c0c0;
+  display:block;
+  width: 200px;
+}
+
+#marca{
+  background-color: #C3F250;
+}
+
+main{
+  width: 100%;
+  height: 100%;
+}
+
+#titulo{
+  width: 20%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  color: #35384B;
+}
+
+#titulo h1{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+#detalhe-titulo{
+  color: #C3F250;
+  font-weight: bolder;
+}
+
+#titulo img{
+  width: 40px;
+  height: 28px;
+}
+
+main section{
+  display: flex;
+  width: 100%;
+}
+
+/* Form Login */
+
+.login-formulario{
+  width: 45%;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+
+.login-formulario h2{
+  text-align: center;
+  color: #0AA6A6;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-form label {
+  margin-bottom: 5px; 
+  margin-top: 20px;
+}
+
+.login-form input{
+  height: 50px;
+  border-radius: 10px;
+  border: #35384bab 1px solid;
+  padding-left: 15px;
+  font-size: 12px;
+}
+
+.login-form p{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.login-form .checkbox {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 10px;
+}
+
+.login-form .checkbox input {
+  margin-right: 5px; 
+}
+
+.login-form button{
+  height: 50px;
+  background-color: #C3F250;
+  color: #3C5401;
+  margin-bottom: 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+/* Form Register */
+
+.register-formulario{
+  width: 45%;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+
+.register-formulario h2{
+  text-align: center;
+  color: #0AA6A6;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.register-form label {
+  margin-bottom: 5px; 
+  margin-top: 20px;
+}
+
+.register-form input{
+  height: 50px;
+  border-radius: 10px;
+  border: #35384bab 1px solid;
+  padding-left: 15px;
+  font-size: 12px;
+}
+
+.register-form p{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.register-form .checkbox {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 10px;
+}
+
+.register-form .checkbox input {
+  margin-right: 5px; 
+}
+
+.register-form button{
+  height: 50px;
+  background-color: #C3F250;
+  color: #3C5401;
+  margin-bottom: 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.social-login{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.facebook, .instagram, .google{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.facebook > img, .instagram > img, .google > img{
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+}
+
+#esqueceu-senha{
+  color: #0AA6A6;
+  font-weight: bold;
+}
+
+
+#cadastrar-form-titulo{
+  color: #35384B;
+}
+
+#cadastrar-form-button{
+  background-color: #35384B;
+  color: #0AA6A6;
+}
+
+.login-formulario:hover{
+  transform: scale(1.07);
+}
+
+.login-formulario button:hover{
+  background-color: #aacc55;
+  cursor: pointer;
+}
+
+#cadastrar-form-button:hover{
+  background-color: #1d1e25;
+  cursor: pointer;
+}
+
+/* Add this at the end of your CSS file */
+@media only screen and (max-width: 1300px) {
+  .menu{
+      width: 90%;
+  }
+
+  .menu > li{
+      margin-left: 10px;
+      font-size: 13px;
+  }
+
+  #titulo{
+      width: 25%;
+  }
+}
+
+@media only screen and (max-width: 1045px) {
+  .menu > li{
+      margin-left: 5px;
+      font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 962px) {
+  .menu > li > a > img{
+      display: none;
+  }
+
+  .menu > li{
+      font-size: 14px;
+      margin-left: 15px;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  #logo {
+    margin-left: 20px;
+  }
+
+  #icone-nx{
+      display: none;
+  }
+  
+  #divBusca {
+    width: 40%;
+    margin-left: 10px;
+  }
+
+  #txtBusca {
+      width: 75%;
+  }
+
+  #btnBusca{
+      width: 18.5%;
+  }
+
+  .opcoes-usuario > a {
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  .opcoes-usuario > a > img{
+      width: 25px;
+      height: 25px;
+  }
+
+  .menu > li{
+      margin-left: 5px;
+  }
+
+  #titulo{
+      width: 40%;
+  }
+
+  main section{
+      display: block;
+  }
+
+  .login-formulario{
+      width: 90%;
+  }
+}
+
+@media only screen and (max-width: 677px) {
+  #divBusca {
+    width: 40%;
+    margin-left: 10px;
+  }
+
+  #txtBusca {
+      width: 75%;
+  }
+
+  #btnBusca{
+      width: 18.5%;
+  }
+
+  #opcoes-usuario-atendimento{
+      display: none;
+  }
+
+  #titulo{
+      width: 45%;
+  }
+
+  .opcoes-usuario{
+      margin-left: 25px;
+  }
+}
+
+@media only screen and (max-width: 594px) {
+
+  #logo{
+      margin-left: 50px;
+  }
+
+  .opcoes-usuario > a > img{
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
+  }
+
+  #divBusca{
+      display: none;
+  }
+
+  #titulo{
+      width: 54%;
+  }
+}
