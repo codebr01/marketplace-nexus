@@ -185,8 +185,6 @@ main section{
   width: 100%;
 }
 
-/* Form Login */
-
 .login-formulario{
   width: 45%;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
@@ -248,73 +246,8 @@ main section{
   border: none;
   font-weight: bold;
   border-radius: 10px;
-  margin-top: 25px;
-}
-
-/* Form Register */
-
-.register-formulario{
-  width: 45%;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  margin-top: 30px;
-  margin-left: 40px;
-  margin-bottom: 30px;
-}
-
-.register-formulario h2{
-  text-align: center;
-  color: #0AA6A6;
-  font-weight: 600;
   margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.register-form {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.register-form label {
-  margin-bottom: 5px; 
-  margin-top: 20px;
-}
-
-.register-form input{
-  height: 50px;
-  border-radius: 10px;
-  border: #35384bab 1px solid;
-  padding-left: 15px;
-  font-size: 12px;
-}
-
-.register-form p{
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-.register-form .checkbox {
-  display: flex;
-  align-items: center; 
-  margin-bottom: 10px;
-}
-
-.register-form .checkbox input {
-  margin-right: 5px; 
-}
-
-.register-form button{
-  height: 50px;
-  background-color: #C3F250;
-  color: #3C5401;
-  margin-bottom: 20px;
-  border: none;
-  font-weight: bold;
-  border-radius: 10px;
-  margin-top: 25px;
+  margin-bottom: 40px;
 }
 
 .social-login{
