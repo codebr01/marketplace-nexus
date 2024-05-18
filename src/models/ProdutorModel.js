@@ -1,15 +1,20 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcryptjs = require('bcryptjs');
+const ValidaCPF = require('../../public/assets/js/ValidaCPF')
 
-const LoginSchema = new mongoose.Schema({
+const ProdutorSchema = new mongoose.Schema({
+  nome: {type: String, required: true},
+  sobrenome: {type: String, required: true},
   email: { type: String, required: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  cpf: {type: String, required: true},
+  telefone: {type: String, required: true}
 });
 
-const LoginModel = mongoose.model('Login', LoginSchema);
+const ProdutorModel = mongoose.model('Produtor', ProdutorSchema);
 
-class Login {
+class Produtor {
   constructor(body) {
     this.body = body;
     this.errors = [];
@@ -20,7 +25,7 @@ class Login {
     this.valida();
     if(this.errors.length > 0) return;
 
-    this.user = await LoginModel.findOne({email: this.body.email});  
+    this.user = await ProdutorModel.findOne({email: this.body.email});  
     
     if (!this.user) {
       this.errors.push('Usuário não existe.');
@@ -47,15 +52,14 @@ class Login {
     const salt = bcryptjs.genSaltSync();
     this.body.password = bcryptjs.hashSync(this.body.password, salt);
 
-    this.user = await LoginModel.create(this.body);
+    this.user = await ProdutorModel.create(this.body);
   }
 
   async userExists() {
-    this.user = await LoginModel.findOne({email: this.body.email});
+    this.user = await ProdutorModel.findOne({email: this.body.email});
     
     if (this.user) this.errors.push('Já existe um usuário com este email.');
-    
-
+  
   }
 
   valida() {
@@ -77,20 +81,29 @@ class Login {
 
   validaRegister() {
 
-    this.cleanUpRegister(); 
+    console.log(this.body)
 
     if(!validator.isEmail(this.body.email)) this.errors.push('Email inválido');
 
     if(this.body.password.length < 3 || this.body.password.length > 50) this.errors.push('Senha precisa ter entre 3 e 50 caracteres');
+
+    const cpfValido = new ValidaCPF(this.body.cpf);
+
+    if(!cpfValido.valida()) this.errors.push('CPF INVALIDO');
+
   }
 
   cleanUpRegister() {
 
     this.body = {
+      nome: this.body.nome,
+      sobrenome: this.body.sobrenome,
       email: this.body.email,
-      password: this.body.password[0]
+      password: this.body.password,
+      cpf: this.body.cpf,
+      telefone: this.body.telefone
     };
   }
 }
 
-module.exports = Login;
+module.exports = Produtor;

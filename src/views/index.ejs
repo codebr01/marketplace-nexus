@@ -1,162 +1,383 @@
 <%- include('includes/head'); %>
-    <div id="cabecalho">
-        <p>Produtos Sustentáveis
-            <img src="/assets/img/icone-nexus.png" alt="icone-nexus">
-        </p>
-        
+  <div id="cabecalho">
+    <p>Produtos Sustentáveis
+      <img src="/assets/img/icone-nexus.png" alt="icone-nexus">
+    </p>
+
+  </div>
+
+  <header>
+    <a href="/">
+      <div id="logo">
+        <img src="/assets/img/icone-nexus.png" alt="" id="icone-nx">
+        <img src="/assets/img/nexus.png" alt="" id="nome-nx">
+      </div>
+    </a>
+
+    <div id="divBusca">
+      <input type="text" id="txtBusca" placeholder="Procurar por produtos" />
+      <button id="btnBusca"><img src="/assets/img/icone-buscar.png" alt="Buscar..." /></button>
     </div>
 
-    <header>
-        <a href="index.html">
-            <div id="logo">
-                <img src="/assets/img/icone-nexus.png" alt="" id="icone-nx">
-                <img src="/assets/img/nexus.png" alt="" id="nome-nx">
-            </div>
-        </a>
+    <div class="opcoes-usuario" id="opcoes-usuario-atendimento">
+      <a href="#">
+        <img src="/assets/img/icone-atendimento.png" alt="icone-atendimento">
+        <p>Central de <br> <b>Atendimento</b></p>
+      </a>
+    </div>
 
+    <div class="opcoes-usuario">
+      <a href="/cliente">
+        <img src="/assets/img/icone-user.png" alt="icone-atendimento">
+        <p>Entrar ou<br> <b>Cadastrar</b><br>Cliente</p>
+      </a>
+    </div>
+
+    <div class="opcoes-usuario">
+      <a href="/produtor/login">
+        <img src="/assets/img/icone-user.png" alt="icone-atendimento">
+        <p>Entrar ou<br> <b>Cadastrar</b><br>Produtor</p>
+      </a>
+    </div>
+
+    <div class="opcoes-usuario">
+      <a href="#">
+        <img src="/assets/img/icone-carrinho.png" alt="">
+      </a>
+    </div>
+  </header>
+  <nav>
+    <ul class="menu">
+      <li><a href="#">Alimentos e Bebidas <img src="/assets/img/seta-baixo.png"></a>
+        <ul>
+          <li><a href="#">Categoria 1</a></li>
+          <li><a href="#">Categoria 2</a></li>
+          <li><a href="#">Categoria 3</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Beleza e Higiene <img src="/assets/img/seta-baixo.png"></a>
+        <ul>
+          <li><a href="#">Categoria 1</a></li>
+          <li><a href="#">Categoria 2</a></li>
+          <li><a href="#">Categoria 3</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Casa e Jardim <img src="/assets/img/seta-baixo.png"></a>
+        <ul>
+          <li><a href="#">Categoria 1</a></li>
+          <li><a href="#">Categoria 2</a></li>
+          <li><a href="#">Categoria 3</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Saúde <img src="/assets/img/seta-baixo.png"></a>
+        <ul>
+          <li><a href="#">Categoria 1</a></li>
+          <li><a href="#">Categoria 2</a></li>
+          <li><a href="#">Categoria 3</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Moda <img src="/assets/img/seta-baixo.png"></a>
+        <ul>
+          <li><a href="#">Categoria 1</a></li>
+          <li><a href="#">Categoria 2</a></li>
+          <li><a href="#">Categoria 3</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">Outros <img src="/assets/img/seta-baixo.png"></a>
+        <ul>
+          <li><a href="#">Categoria 1</a></li>
+          <li><a href="#">Categoria 2</a></li>
+          <li><a href="#">Categoria 3</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#" id="marca">Marcas <img src="/assets/img/seta-baixo.png"> </a>
+        <ul>
+          <li><a href="#">Nome da marca 1</a></li>
+          <li><a href="#">Nome da marca 2</a></li>
+          <li><a href="#">Nome da marca 3</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="banner-principal">
+
+  </section>
+
+  <section class="produtos">
+    <div class="titulo-produtos">
+      <img src="/assets/img/icone-nexus.png" alt="">
+      <h2>Ofertas</h2>
+    </div>
+
+    <div class="container-cards">
+      <div class="card">
+        <img src="/assets/img/produto1.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+
+      <div class="card">
+        <img src="/assets/img/produto2.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+
+      <div class="card">
+        <img src="/assets/img/produto1.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+
+      <div class="card">
+        <img src="/assets/img/produto3.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categorias">
+    <div class="titulo-produtos">
+      <img src="/assets/img/icone-nexus.png" alt="">
+      <h2>Categorias em Alta</h2>
+    </div>
+
+    <div class="container-cards">
+      <div class="cards2">
+        <img src="#" alt="">
+      </div>
+
+      <div class="cards2">
+        <img src="#" alt="">
+      </div>
+
+      <div class="cards2">
+        <img src="#" alt="">
+      </div>
+
+      <div class="cards2">
+        <img src="#" alt="">
+      </div>
+
+      <div class="cards2">
+        <img src="#" alt="">
+      </div>
+
+      <div class="cards2">
+        <img src="#" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="escolher-parceiros">
+    <div id="titulo-parceiros">
+      <img src="/assets/img/icone-nexus.png" alt="">
+      <h2>Como escolhemos nossos parceiros?</h2>
+    </div>
+
+
+  </section>
+
+  <section class="produtos">
+    <div class="titulo-produtos">
+      <img src="/assets/img/icone-nexus.png" alt="">
+      <h2>Lançamentos</h2>
+    </div>
+
+    <div class="container-cards">
+      <div class="card">
+        <img src="/assets/img/produto1.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+
+      <div class="card">
+        <img src="/assets/img/produto2.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+
+      <div class="card">
+        <img src="/assets/img/produto1.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+
+      <div class="card">
+        <img src="/assets/img/produto3.png" alt="">
+        <h3>Nome do Produto</h3>
+        <p>R$ 300,00</p>
+        <div class="informacoes-marca">
+          <div class="circulo"></div>
+          <h5>Nome da marca</h5>
+        </div>
+        <button><img src="/assets/img/icone-carrinho2.png">COMPRAR</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="depoimentos">
+    <div class="titulo-produtos">
+      <img src="/assets/img/icone-nexus.png" alt="">
+      <h2>Depoimentos</h2>
+    </div>
+
+    <div class="container-cards">
+      <div class="card3">
+        <h2>Nome Sobrenome</h2>
+        <h3>Cidade/ Estado</h3>
+        <p>Toda nova marca passa por uma curadoria especializada para garantirmos sempre produtos veganos e
+          sustentáveis!</p>
+        <div class="nota">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+        </div>
+      </div>
+
+      <div class="card3">
+        <h2>Nome Sobrenome</h2>
+        <h3>Cidade/ Estado</h3>
+        <p>Toda nova marca passa por uma curadoria especializada para garantirmos sempre produtos veganos e
+          sustentáveis!</p>
+        <div class="nota">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+        </div>
+      </div>
+
+      <div class="card3">
+        <h2>Nome Sobrenome</h2>
+        <h3>Cidade/ Estado</h3>
+        <p>Toda nova marca passa por uma curadoria especializada para garantirmos sempre produtos veganos e
+          sustentáveis!</p>
+        <div class="nota">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+          <img src="/assets/img/star 1.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="motivacao">
+    <div class="card4">
+      <div class="circulo2"><img src="/assets/img/lupa.png" alt=""></div>
+      <h2>Curadoria própria especializada</h2>
+      <p>Toda nova marca passa por uma curadoria especializada para garantirmos sempre produtos veganos e sustentáveis!
+      </p>
+    </div>
+
+    <div class="card4">
+      <div class="circulo2"><img src="/assets/img/sacola.png" alt=""></div>
+      <h2>Milhares de produtos, um só lugar</h2>
+      <p>Na Nexus você encontra milhares de produtos e todos os dias tem novidades na plataforma!</p>
+    </div>
+
+    <div class="card4">
+      <div class="circulo2"><img src="/assets/img/tag-sacola.png" alt=""></div>
+      <h2>Ótimos preços, sempre!</h2>
+      <p>Analisamos os preços de todos os produtos cadastrados para garantir ótimas condições de compra!</p>
+    </div>
+  </section>
+
+  <footer>
+    <div id="redes-sociais">
+      <img src="/assets/img/icon-instagram.png" alt="">
+      <img src="/assets/img/icon-facebook.png" alt="">
+      <img src="/assets/img/icon-twitter.png" alt="">
+    </div>
+
+    <div id="primeira-parte">
+      <img src="/assets/img/nexus-ofc.png" alt="">
+
+      <div class="footer-colunas">
+        <h3>Institucional</h3>
+        <a>Sobre nós</a>
+        <a>Contato</a>
+        <a>Trabalhe Conosco</a>
+        <a>Nosso Blog</a>
+      </div>
+
+      <div class="footer-colunas">
+        <h3>Atendimento</h3>
+        <p><img src="/assets/img/whatsapp 1.png" alt="">+55 89 9 9449-0526</p>
+        <p id="observacao">Atendimentos via whatsapp de segunda a sexta das 10h às 17h.</p>
+      </div>
+
+      <div class="footer-colunas" id="informacoes">
+        <h3>Informações</h3>
+        <a>Termos e Condições do Comprador</a>
+        <a>Política de Privacidade e Segurança</a>
+        <a>Política de Trocas e Devoluções</a>
+        <a>Termos e condições gerais de Marketplace</a>
+      </div>
+    </div>
+
+    <div id="segunda-parte">
+      <div>
+        <h3>Pagamentos</h3>
+        <img src="/assets/img/pagamentos.png" alt="">
+      </div>
+      <div id="NEWSLETTER">
+        <h3 id="titulo-news">Receba a nossa
+          <br> NEWSLETTER
+        </h3>
         <div id="divBusca">
-            <input type="text" id="txtBusca" placeholder="Procurar por produtos"/>
-            <button id="btnBusca"><img src="/assets/img/icone-buscar.png" alt="Buscar..."/></button>
-        </div>
-
-        <div class="opcoes-usuario" id="opcoes-usuario-atendimento">
-            <a href="#">
-                <img src="/assets/img/icone-atendimento.png" alt="icone-atendimento">
-                <p>Central de <br> <b>Atendimento</b></p>
-            </a>
-        </div>
-
-        <div class="opcoes-usuario">
-            <a href="#">
-                <img src="/assets/img/icone-user.png" alt="icone-atendimento">
-                <p>Entrar ou<br> <b>Cadastrar</b></p>
-            </a>
-        </div>
-
-        <div class="opcoes-usuario">
-            <a href="#">
-                <img src="/assets/img/icone-carrinho.png" alt="">
-            </a>
-        </div>
-    </header>
-    <nav>
-        <ul class="menu">
-            <li><a href="#">Alimentos e Bebidas <img src="/assets/img/seta-baixo.png"></a>
-                <ul>
-                    <li><a href="#">Categoria 1</a></li>
-                    <li><a href="#">Categoria 2</a></li>
-                    <li><a href="#">Categoria 3</a></li>
-                 </ul>
-            </li>
-
-            <li><a href="#">Beleza e Higiene <img src="/assets/img/seta-baixo.png"></a>
-                <ul>
-                    <li><a href="#">Categoria 1</a></li>
-                    <li><a href="#">Categoria 2</a></li>
-                    <li><a href="#">Categoria 3</a></li>
-                 </ul>
-            </li>
-
-            <li><a href="#">Casa e Jardim <img src="/assets/img/seta-baixo.png"></a>
-                <ul>
-                    <li><a href="#">Categoria 1</a></li>
-                    <li><a href="#">Categoria 2</a></li>
-                    <li><a href="#">Categoria 3</a></li>
-                 </ul>
-            </li>
-
-            <li><a href="#">Saúde <img src="/assets/img/seta-baixo.png"></a>
-                <ul>
-                    <li><a href="#">Categoria 1</a></li>
-                    <li><a href="#">Categoria 2</a></li>
-                    <li><a href="#">Categoria 3</a></li>
-                 </ul>
-            </li>
-
-            <li><a href="#">Moda <img src="/assets/img/seta-baixo.png"></a>
-                <ul>
-                    <li><a href="#">Categoria 1</a></li>
-                    <li><a href="#">Categoria 2</a></li>
-                    <li><a href="#">Categoria 3</a></li>
-                 </ul>
-            </li>
-
-            <li><a href="#">Outros <img src="/assets/img/seta-baixo.png"></a>
-                <ul>
-                    <li><a href="#">Categoria 1</a></li>
-                    <li><a href="#">Categoria 2</a></li>
-                    <li><a href="#">Categoria 3</a></li>
-                 </ul>
-            </li>
-
-            <li><a href="#" id="marca">Marcas <img src="/assets/img/seta-baixo.png"> </a>
-                <ul>
-                    <li><a href="#">Nome da marca 1</a></li>
-                    <li><a href="#">Nome da marca 2</a></li>
-                    <li><a href="#">Nome da marca 3</a></li>
-                 </ul>
-            </li>
-      </ul>
-    </nav>
-
-    <main>
-        <div id="titulo">
-            <img src="/assets/img/icone-nexus.png">
-            <h1>Seja Bem-Vindo</h1> <h1 id="detalhe-titulo">!</h1>
-        </div>
-
-        <section>
-           <div class="login-formulario">
-                <h2>Login</h2>
-                <form class="login-form" action="/login/login" method="post">
-                    <input type="hidden" name="_csrf" value=<%=csrfToken %>>
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-            
-                    <label for="senha">Senha</label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-            
-                    <p>Esqueceu a senha?<a href="#" id="esqueceu-senha">Clique aqui!</a></p>
-
-                    <div class="checkbox">
-                        <input type="checkbox" id="manter-conectado" name="manter-conectado">
-                        <label for="manter-conectado">Manter conectado</label>
-                    </div>
-            
-                    <button type="submit">ENTRAR</button>
-                </form>
-            
-                <div class="social-login">
-                    <p>Ou faça login com:</p>
-                    <button class="facebook"><img src="/assets/img/facebook-app-symbol.png"></button>
-                    <button class="google"><img src="/assets/img/google.png"></button>
-                    <button class="instagram"><img src="/assets/img/instagram (2).png"></button>
-                </div>
-           </div>
-
-           <div class="login-formulario">
-            <h2 id="cadastrar-form-titulo">Cadastre-se</h2>
-            <form class="register-form" action="/login/register" method="post">
-                <input type="hidden" name="_csrf" value=<%=csrfToken %>>
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
-        
-                <label for="senha">Senha</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-
-                <label for="senha">Confirmar senha</label>
-                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-        
-                <button type="submit" id="cadastrar-form-button">CADASTRAR</button>
-            </form>
-        
-            <div class="social-login">
-                <p>Ou faça o cadastro com:</p>
-                <button class="facebook"><img src="/assets/img/facebook-app-symbol.png"></button>
-                <button class="google"><img src="/assets/img/google.png"></button>
-                <button class="instagram"><img src="/assets/img/instagram (2).png"></button>
-            </div>
-       </div>
-        </section>
-    </main>
-<%- include('includes/footer'); %>
+          <input type="text" id="txtBusca" placeholder="Digite seu email" />
+          <button id="btnBusca"><img src="/assets/img/mail 1.png" /></button>
+        </div>img/
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/bundle.js"></script>
+</body>
+</html>

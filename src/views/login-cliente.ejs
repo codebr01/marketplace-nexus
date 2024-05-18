@@ -7,7 +7,7 @@
     </div>
 
     <header>
-        <a href="index.html">
+        <a href="/">
             <div id="logo">
                 <img src="/assets/img/icone-nexus.png" alt="" id="icone-nx">
                 <img src="/assets/img/nexus.png" alt="" id="nome-nx">
@@ -104,11 +104,11 @@
             <img src="/assets/img/icone-nexus.png">
             <h1>Seja Bem-Vindo</h1> <h1 id="detalhe-titulo">!</h1>
         </div>
-
+        <%- include('includes/messages'); %>
         <section>
            <div class="login-formulario">
                 <h2>Login</h2>
-                <form class="login-form" action="/login/login" method="post">
+                <form class="login-form" action="/cliente/login" method="post">
                     <input type="hidden" name="_csrf" value=<%=csrfToken %>>
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
@@ -134,9 +134,9 @@
                 </div>
            </div>
 
-           <div class="login-formulario">
+           <div class="register-formulario">
             <h2 id="cadastrar-form-titulo">Cadastre-se</h2>
-            <form class="register-form" action="/login/register" method="post">
+            <form class="register-form" action="/cliente/register" method="post">
                 <input type="hidden" name="_csrf" value=<%=csrfToken %>>
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>

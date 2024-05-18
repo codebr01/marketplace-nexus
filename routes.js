@@ -2,7 +2,6 @@ const express = require('express');
 const route = express.Router();
 const homeController = require('./src/controllers/homeController');
 const loginController = require('./src/controllers/loginController');
-const contatoController = require('./src/controllers/contatoController');
 
 const { loginRequired } = require('./src/middlewares/middlewares');
 
@@ -11,15 +10,16 @@ route.get('/',homeController.index);
 
 // Rotas de Login
 route.get('/login/index', loginController.index);
-route.post('/login/register', loginController.register);
-route.post('/login/login', loginController.login);
-// route.get('/login/logout', loginController.logout);
+//rotas de cliente
+route.get('/cliente', loginController.redirectCliente);
+route.post('/cliente/register', loginController.register);
+route.post('/cliente/login', loginController.login);
+//rotas de produtor
+route.get('/produtor/login', loginController.redirectProdutorLogin);
+route.get('/produtor/register', loginController.redirectProdutorRegister);
+route.post('/produtor/registrar', loginController.produtorRegistrar);
+route.post('/produtor/logar', loginController.produtorLogar);
 
-// // Rotas de contato
-// route.get('/contato/index', loginRequired,contatoController.index);
-// route.post('/contato/register', loginRequired,contatoController.register);
-// route.get('/contato/index/:id', loginRequired,contatoController.editIndex);
-// route.post('/contato/edit/:id', loginRequired,contatoController.edit);
-// route.get('/contato/delete/:id', loginRequired,contatoController.delete);
+// route.get('/login/logout', loginController.logout);
 
 module.exports = route;
