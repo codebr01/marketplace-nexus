@@ -1,0 +1,61 @@
+<%- include('includes/head'); %>
+
+<body>
+  <div id="cabecalho">
+    <p>Produtos Sustentáveis
+      <img src="/assets/img/icone-nexus.png" alt="icone-nexus">
+    </p>
+
+  </div>
+
+  <header class="logo-login">
+    <a href="/">
+      <div id="logo2">
+        <img src="/assets/img/icone-nexus.png" alt="" id="icone-nx">
+        <img src="/assets/img/nexus.png" alt="" id="nome-nx">
+      </div>
+    </a>
+  </header>
+
+  <main>
+
+    <section>
+      <div id="form-produtor">
+        <div id="circulo-container">
+          <div id="circulo"><img src="/assets/img/user.png" alt=""></div>
+        </div>
+        <h2>Login</h2>
+        <%- include('includes/messages'); %>
+        <form class="login-form" action="/produtor/logar" method="post">
+          <input type="hidden" name="_csrf" value=<%=csrfToken %>>
+          <label for="email">Email</label>
+          <input type="email" id="emais" name="email" placeholder="Digite seu email" required>
+
+          <label for="senha">Senha</label>
+          <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+
+          <p>Não possui uma conta?<a href="/produtor/register" id="esqueceu-senha">Faça seu cadastro!</a></p>
+
+          <p>Esqueceu a senha?<a href="#" id="esqueceu-senha">Clique aqui!</a></p>
+
+          <div class="checkbox">
+            <input type="checkbox" id="manter-conectado" name="manter-conectado">
+            <label for="manter-conectado">Manter conectado</label>
+          </div>
+
+          <button type="submit" id="botao">ENTRAR</button>
+        </form>
+
+        <div class="social-login">
+          <p>Ou faça login com:</p>
+          <button class="facebook"><img src="/assets/img/facebook-app-symbol.png"></button>
+          <button class="google"><img src="/assets/img/google.png"></button>
+          <button class="instagram"><img src="/assets/img/instagram (2).png"></button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

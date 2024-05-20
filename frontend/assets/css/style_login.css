@@ -185,8 +185,6 @@ main section{
   width: 100%;
 }
 
-/* Form Login */
-
 .login-formulario{
   width: 45%;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.25);
@@ -248,10 +246,63 @@ main section{
   border: none;
   font-weight: bold;
   border-radius: 10px;
-  margin-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
-/* Form Register */
+.social-login{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.facebook, .instagram, .google{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.facebook > img, .instagram > img, .google > img{
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+}
+
+#esqueceu-senha{
+  color: #0AA6A6;
+  font-weight: bold;
+}
+
+
+#cadastrar-form-titulo{
+  color: #35384B;
+}
+
+#cadastrar-form-button{
+  background-color: #35384B;
+  color: #0AA6A6;
+}
+
+.login-formulario:hover{
+  transform: scale(1.07);
+}
+
+.login-formulario button:hover{
+  background-color: #aacc55;
+  cursor: pointer;
+}
+
+#cadastrar-form-button:hover{
+  background-color: #1d1e25;
+  cursor: pointer;
+}
+
+/*
+ form de cadastro
+*/
 
 .register-formulario{
   width: 45%;
@@ -314,10 +365,11 @@ main section{
   border: none;
   font-weight: bold;
   border-radius: 10px;
-  margin-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
-.social-login{
+.social-register{
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -353,11 +405,11 @@ main section{
   color: #0AA6A6;
 }
 
-.login-formulario:hover{
+.register-formulario:hover{
   transform: scale(1.07);
 }
 
-.login-formulario button:hover{
+.register-formulario button:hover{
   background-color: #aacc55;
   cursor: pointer;
 }

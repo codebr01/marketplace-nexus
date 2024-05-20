@@ -1,0 +1,162 @@
+<%- include('includes/head'); %>
+    <div id="cabecalho">
+        <p>Produtos Sustentáveis
+            <img src="/assets/img/icone-nexus.png" alt="icone-nexus">
+        </p>
+        
+    </div>
+
+    <header>
+        <a href="/">
+            <div id="logo">
+                <img src="/assets/img/icone-nexus.png" alt="" id="icone-nx">
+                <img src="/assets/img/nexus.png" alt="" id="nome-nx">
+            </div>
+        </a>
+
+        <div id="divBusca">
+            <input type="text" id="txtBusca" placeholder="Procurar por produtos"/>
+            <button id="btnBusca"><img src="/assets/img/icone-buscar.png" alt="Buscar..."/></button>
+        </div>
+
+        <div class="opcoes-usuario" id="opcoes-usuario-atendimento">
+            <a href="#">
+                <img src="/assets/img/icone-atendimento.png" alt="icone-atendimento">
+                <p>Central de <br> <b>Atendimento</b></p>
+            </a>
+        </div>
+
+        <div class="opcoes-usuario">
+            <a href="#">
+                <img src="/assets/img/icone-user.png" alt="icone-atendimento">
+                <p>Entrar ou<br> <b>Cadastrar</b></p>
+            </a>
+        </div>
+
+        <div class="opcoes-usuario">
+            <a href="#">
+                <img src="/assets/img/icone-carrinho.png" alt="">
+            </a>
+        </div>
+    </header>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">Alimentos e Bebidas <img src="/assets/img/seta-baixo.png"></a>
+                <ul>
+                    <li><a href="#">Categoria 1</a></li>
+                    <li><a href="#">Categoria 2</a></li>
+                    <li><a href="#">Categoria 3</a></li>
+                 </ul>
+            </li>
+
+            <li><a href="#">Beleza e Higiene <img src="/assets/img/seta-baixo.png"></a>
+                <ul>
+                    <li><a href="#">Categoria 1</a></li>
+                    <li><a href="#">Categoria 2</a></li>
+                    <li><a href="#">Categoria 3</a></li>
+                 </ul>
+            </li>
+
+            <li><a href="#">Casa e Jardim <img src="/assets/img/seta-baixo.png"></a>
+                <ul>
+                    <li><a href="#">Categoria 1</a></li>
+                    <li><a href="#">Categoria 2</a></li>
+                    <li><a href="#">Categoria 3</a></li>
+                 </ul>
+            </li>
+
+            <li><a href="#">Saúde <img src="/assets/img/seta-baixo.png"></a>
+                <ul>
+                    <li><a href="#">Categoria 1</a></li>
+                    <li><a href="#">Categoria 2</a></li>
+                    <li><a href="#">Categoria 3</a></li>
+                 </ul>
+            </li>
+
+            <li><a href="#">Moda <img src="/assets/img/seta-baixo.png"></a>
+                <ul>
+                    <li><a href="#">Categoria 1</a></li>
+                    <li><a href="#">Categoria 2</a></li>
+                    <li><a href="#">Categoria 3</a></li>
+                 </ul>
+            </li>
+
+            <li><a href="#">Outros <img src="/assets/img/seta-baixo.png"></a>
+                <ul>
+                    <li><a href="#">Categoria 1</a></li>
+                    <li><a href="#">Categoria 2</a></li>
+                    <li><a href="#">Categoria 3</a></li>
+                 </ul>
+            </li>
+
+            <li><a href="#" id="marca">Marcas <img src="/assets/img/seta-baixo.png"> </a>
+                <ul>
+                    <li><a href="#">Nome da marca 1</a></li>
+                    <li><a href="#">Nome da marca 2</a></li>
+                    <li><a href="#">Nome da marca 3</a></li>
+                 </ul>
+            </li>
+      </ul>
+    </nav>
+
+    <main>
+        <div id="titulo">
+            <img src="/assets/img/icone-nexus.png">
+            <h1>Seja Bem-Vindo</h1> <h1 id="detalhe-titulo">!</h1>
+        </div>
+        <%- include('includes/messages'); %>
+        <section>
+           <div class="login-formulario">
+                <h2>Login</h2>
+                <form class="login-form" action="/cliente/login" method="post">
+                    <input type="hidden" name="_csrf" value=<%=csrfToken %>>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+            
+                    <label for="senha">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            
+                    <p>Esqueceu a senha?<a href="#" id="esqueceu-senha">Clique aqui!</a></p>
+
+                    <div class="checkbox">
+                        <input type="checkbox" id="manter-conectado" name="manter-conectado">
+                        <label for="manter-conectado">Manter conectado</label>
+                    </div>
+            
+                    <button type="submit">ENTRAR</button>
+                </form>
+            
+                <div class="social-login">
+                    <p>Ou faça login com:</p>
+                    <button class="facebook"><img src="/assets/img/facebook-app-symbol.png"></button>
+                    <button class="google"><img src="/assets/img/google.png"></button>
+                    <button class="instagram"><img src="/assets/img/instagram (2).png"></button>
+                </div>
+           </div>
+
+           <div class="register-formulario">
+            <h2 id="cadastrar-form-titulo">Cadastre-se</h2>
+            <form class="register-form" action="/cliente/register" method="post">
+                <input type="hidden" name="_csrf" value=<%=csrfToken %>>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+        
+                <label for="senha">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+
+                <label for="senha">Confirmar senha</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+        
+                <button type="submit" id="cadastrar-form-button">CADASTRAR</button>
+            </form>
+        
+            <div class="social-login">
+                <p>Ou faça o cadastro com:</p>
+                <button class="facebook"><img src="/assets/img/facebook-app-symbol.png"></button>
+                <button class="google"><img src="/assets/img/google.png"></button>
+                <button class="instagram"><img src="/assets/img/instagram (2).png"></button>
+            </div>
+       </div>
+        </section>
+    </main>
+<%- include('includes/footer'); %>
