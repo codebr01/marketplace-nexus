@@ -81,8 +81,6 @@ class Produtor {
 
   validaRegister() {
 
-    console.log(this.body)
-
     if(!validator.isEmail(this.body.email)) this.errors.push('Email inválido');
 
     if(this.body.password.length < 3 || this.body.password.length > 50) this.errors.push('Senha precisa ter entre 3 e 50 caracteres');
