@@ -69,3 +69,29 @@
 #circulo > img{
   margin-top: 10px;
 }
+
+.botoes{
+  margin: 0 auto;
+}
+
+.botoes button{
+  width: 310px;
+}
+
+#botao2{
+  background-color: lightgray;
+  color: #000;
+}
+
+#botao2:hover{
+  background-color: gray;
+}
+
+.botoes button:hover{
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#botao:hover{
+  background-color: #aacc55;
+}
