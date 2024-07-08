@@ -2,6 +2,7 @@ const express = require('express');
 const route = express.Router();
 const homeController = require('./src/controllers/homeController');
 const loginController = require('./src/controllers/loginController');
+const lojaController = require('./src/controllers/lojaController');
 
 const { loginRequired } = require('./src/middlewares/middlewares');
 
@@ -10,16 +11,25 @@ route.get('/',homeController.index);
 
 // Rotas de Login
 route.get('/login/index', loginController.index);
+
 //rotas de cliente
 route.get('/cliente', loginController.redirectCliente);
-route.post('/cliente/register', loginController.register);
 route.post('/cliente/login', loginController.login);
+route.post('/cliente/register', loginController.register);
+
 //rotas de produtor
 route.get('/produtor/login', loginController.redirectProdutorLogin);
+route.post('/produtor/logar', loginController.produtorLogar);
 route.get('/produtor/register', loginController.redirectProdutorRegister);
 route.post('/produtor/registrar', loginController.produtorRegistrar);
-route.post('/produtor/logar', loginController.produtorLogar);
 
-// route.get('/login/logout', loginController.logout);
+//rotas da loja
+route.get('/loja', lojaController.loja);
+route.get('/loja/cadastro', lojaController.cadastroLoja);
+route.get('/loja/cadastrar', lojaController.cadastrarLoja);
+route.post('/loja/enviarCadastro', lojaController.enviarCadastro);
+
+// Rota de Logout
+route.get('/logout', loginController.logout);
 
 module.exports = route;

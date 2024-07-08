@@ -89,6 +89,16 @@ header{
   font-size: 12px;
 }
 
+.logout > a{
+  display: flex;
+  margin-left: 45px;
+  margin-top: 20px;
+  color: #E0EEEE;
+  text-decoration: none;
+  font-size: 25px;
+  border-color: white;
+}
+
 .opcoes-usuario > a > img{
   width: 35px;
   height: 35px;
