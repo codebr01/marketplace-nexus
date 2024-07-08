@@ -26,25 +26,32 @@
       </a>
     </div>
 
-    <div class="opcoes-usuario">
-      <a href="/cliente">
-        <img src="/assets/img/icone-user.png" alt="icone-atendimento">
-        <p>Entrar ou<br> <b>Cadastrar</b><br>Cliente</p>
-      </a>
-    </div>
-
-    <div class="opcoes-usuario">
-      <a href="/produtor/login">
-        <img src="/assets/img/icone-user.png" alt="icone-atendimento">
-        <p>Entrar ou<br> <b>Cadastrar</b><br>Produtor</p>
-      </a>
-    </div>
-
-    <div class="opcoes-usuario">
-      <a href="#">
-        <img src="/assets/img/icone-carrinho.png" alt="">
-      </a>
-    </div>
+    <% if(user !== undefined) { %>
+      <div class="opcoes-usuario">
+        <a href="#">
+          <img src="/assets/img/icone-carrinho.png" alt="">
+        </a>
+      </div>
+      <div class="logout">
+        <a href="/logout">
+          Sair
+        </a>
+      </div>
+    <% }else { %>
+      <div class="opcoes-usuario">
+        <a href="/cliente">
+          <img src="/assets/img/icone-user.png" alt="icone-atendimento">
+          <p>Entrar ou<br> <b>Cadastrar</b><br>Cliente</p>
+        </a>
+      </div>
+  
+      <div class="opcoes-usuario">
+        <a href="/produtor/login">
+          <img src="/assets/img/icone-user.png" alt="icone-atendimento">
+          <p>Entrar ou<br> <b>Cadastrar</b><br>Produtor</p>
+        </a>
+      </div>
+    <% } %>
   </header>
   <nav>
     <ul class="menu">
