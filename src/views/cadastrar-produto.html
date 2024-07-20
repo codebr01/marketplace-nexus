@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+
+    <link rel="stylesheet" href="/frontend/assets/css/style_cadastro_produtor.css">
+    <link rel="stylesheet" href="/frontend/assets/css/style_login.css">
+</head>
+<body>
+    <div id="cabecalho">
+        <p>Produtos Sustentáveis
+            <img src="/frontend//assets/img/icone-nexus.png" alt="icone-nexus">
+        </p>
+        
+    </div>
+
+    <header class="logo-login">
+        <a href="index.html">
+            <div id="logo2">
+                <img src="/frontend//assets/img/icone-nexus.png" alt="" id="icone-nx">
+                <img src="/frontend//assets/img/nexus.png" alt="" id="nome-nx">
+            </div>
+        </a>
+    </header>
+
+    <main>
+        <section>
+           <div id="form-produtor">
+                <h2>Cadastrar Produto</h2>
+                <form class="login-form">
+                    <div class="forms-clas">
+                        <div class="forms-clas2">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
+                        </div>
+
+                        <div class="forms-clas2" id="segundo">
+                            <label for="sobrenome">Valor</label>
+                            <input type="text" id="valor" name="valor" placeholder="Digite o valor do prdouto" required>
+                        </div>
+                    </div>
+
+                    <label for="descricao">Descrição do Produto</label>
+                    <input type="text" id="descricao" name="descricao" required>
+
+                    <div class="forms-clas">
+                        <div class="forms-clas2">
+                            <label for='selecao-arquivo' class="selecao-arquivo"><img src="/frontend/assets/img/image-solid 1.png" alt="">Selecione uma imagem</label>
+                            <input type="file" id="imagem1" class="imagem-input">
+                        </div>
+
+                        <div class="forms-clas2" id="segundo">
+                            <label for='selecao-arquivo' class="selecao-arquivo"><img src="/frontend/assets/img/image-solid 1.png" alt="">Selecione uma imagem</label>
+                            <input type="file"id="imagem2" class="imagem-input">
+                        </div>
+
+                        <div class="forms-clas2" id="segundo">
+                            <label for='selecao-arquivo' class="selecao-arquivo"><img src="/frontend/assets/img/image-solid 1.png" alt="">Selecione uma imagem</label>
+                            <input type="file" id="imagem3" class="imagem-input">
+                        </div>
+                    </div>
+
+                    <div class="botoes">
+                        <a href="index.html"><button id="botao2">CANCELAR</button></a>
+                        <a href="cadastro-loja-final.html"><button type="submit" id="botao">ENVIAR</button></a>
+                    </div>
+                </form>
+        
+           </div>
+        </section>
+    </main>
+</body>
+</html>

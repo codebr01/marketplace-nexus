@@ -228,7 +228,7 @@ main section{
 .login-form input{
   height: 50px;
   border-radius: 10px;
-  border: #35384bab 1px solid;
+  border: #35384b42 solid 1px;  
   padding-left: 15px;
   font-size: 12px;
 }
