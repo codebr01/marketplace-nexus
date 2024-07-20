@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Loja</title>
+
+    <link rel="stylesheet" href="/frontend/assets/css/style_login.css">
+    <link rel="stylesheet" href="/frontend/assets/css/style_estoque_produtos.css">
+</head>
+<body>
+    <div id="cabecalho">
+        <p>Produtos Sustentáveis
+            <img src="/frontend/assets/img/icone-nexus.png" alt="icone-nexus">
+        </p>
+        
+    </div>
+
+    <header>
+        <a href="index.html">
+            <div id="logo">
+                <img src="/frontend/assets/img/icone-nexus.png" alt="" id="icone-nx">
+                <img src="/frontend/assets/img/nexus.png" alt="" id="nome-nx">
+            </div>
+        </a>
+    </header>
+    <main class="produtos">
+        <section class="container-categorias">
+            <div class="categorias">
+                <h4>CATEGORIAS</h4>
+                <form action="#">
+                    <input type="checkbox" id="categoria1" name="categoria1">
+                    <label for="categoria1"> Nome</label><br>
+                    <input type="checkbox" id="categoria2" name="categoria2">
+                    <label for="categoria2"> Nome</label><br>
+                    <input type="checkbox" id="categoria3" name="categoria3">
+                    <label for="categoria3"> Nome</label><br>
+                    <input type="checkbox" id="categoria4" name="categoria4">
+                    <label for="categoria4"> Nome</label><br>
+                    <input type="checkbox" id="categoria5" name="categoria5">
+                    <label for="categoria5"> Nome</label><br>
+                    <input type="checkbox" id="categoria6" name="categoria6">
+                    <label for="categoria6"> Nome</label><br>
+                    <input type="checkbox" id="categoria7" name="categoria7">
+                    <label for="categoria7"> Nome</label><br>
+                </form>
+            </div>
+            <button class="button-editar1">EDITAR CATEGORIAS</button>
+        </section>
+
+        <section class="container-produtos">
+            <div class="titulo">
+                <h1>Produtos Cadastrados</h1>
+                <a href="/src/views/cadastrar-produto.html"><button><img src="/frontend/assets/img/add_circle_24dp_FILL0_wght400_GRAD0_opsz24 1.png">ADICIONAR PRODUTOS</button></a>
+            </div>
+
+            <div class="container-produto">                
+                <div class="info-produto">
+                    <div class="nome-preco"><h3>Nome Produto</h3>
+                         <h4>R$ 299,99</h4>
+                    </div>
+                    <h5>Ref: 001</h5>
+                    <p>Descrição do produto:</p>
+                    <p>
+                        <li>Petisco 100% natural;</li>
+                        <li>Vegano;</li>
+                        <li>Integral;</li>
+                        <li>Livre de corantes e conservantes;</li>
+                        <li>Tamanho ideal para adestrar e treinar o cão (1cm);</li>
+                        <li>Não precisa quebrar;</li>
+                        <li>Rápido de mastigar;</li>
+                        <li>Mantém o foco no treino;</li>
+                    </p>
+                </div>
+
+                <div class="label-produto">
+                    <h5>Categoria</h5>
+                    <button class="botao-editar">EDITAR PRODUTO</button>
+                    <button class="botao-excluir">EXCLUIR PRODUTO</button>
+                </div>
+            </div>
+
+            <div class="container-produto">                
+                <div class="info-produto">
+                    <div class="nome-preco"><h3>Nome Produto</h3>
+                         <h4>R$ 299,99</h4>
+                    </div>
+                    <h5>Ref: 001</h5>
+                    <p>Descrição do produto:</p>
+                    <p>
+                        <li>Petisco 100% natural;</li>
+                        <li>Vegano;</li>
+                        <li>Integral;</li>
+                        <li>Livre de corantes e conservantes;</li>
+                        <li>Tamanho ideal para adestrar e treinar o cão (1cm);</li>
+                        <li>Não precisa quebrar;</li>
+                        <li>Rápido de mastigar;</li>
+                        <li>Mantém o foco no treino;</li>
+                    </p>
+                </div>
+
+                <div class="label-produto">
+                    <h5>Categoria</h5>
+                    <button class="botao-editar">EDITAR PRODUTO</button>
+                    <button class="botao-excluir">EXCLUIR PRODUTO</button>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+</body>
+</html>
