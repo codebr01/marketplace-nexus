@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTIONSTRING).then(() => {
+mongoose.connect(process.env.CONNECTIONSTRING_DEV).then(() => {
   app.emit('pronto');
 }).catch(e => console.log(e));
 
@@ -29,7 +29,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 
 const sessionOptions = session({
   secret: '!@#$%',
-  store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }),
+  store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING_DEV }),
   resave: false,
   saveUninitialized: false,
   cookie: {

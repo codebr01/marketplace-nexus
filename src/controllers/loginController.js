@@ -87,8 +87,6 @@ exports.produtorLogar = async function (req, res) {
 exports.register = async function (req, res) {
   try {
 
-    console.log(req.body);
-
     const login = new Login(req.body);
 
     await login.register();
@@ -103,7 +101,7 @@ exports.register = async function (req, res) {
 
     req.flash('success', 'Seu usuário foi criado com sucesso.');
     req.session.save(function () {
-      return res.redirect('/cliente/register');
+      return res.redirect('/cliente');
     });
   } catch (e) {
     console.log(e);
@@ -113,8 +111,6 @@ exports.register = async function (req, res) {
 
 exports.login = async function (req, res) {
   try {
-
-    console.log(req.body);
 
     const login = new Login(req.body);
     await login.login();
@@ -140,5 +136,5 @@ exports.login = async function (req, res) {
 
 exports.logout = async function (req, res) {
   req.session.destroy();
-  res.redirect('/');
+  return res.redirect('/');
 };

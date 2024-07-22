@@ -2,11 +2,11 @@ const Loja = require('../models/LojaModel');
 const Produto = require('../models/ProdutoModel');
 
 exports.cadastroLoja = async (req, res) => {
-  res.render('cadastro-loja-inicial');
+  return res.render('cadastro-loja-inicial');
 };
 
 exports.cadastrarLoja = async (req, res) => {
-  res.render('cadastrar-loja');
+  return res.render('cadastrar-loja');
 };
 
 exports.dashboard = async (req, res) => {
@@ -14,11 +14,11 @@ exports.dashboard = async (req, res) => {
   const { user } = req.session;
   const { loja } = req.session;
 
-  res.render('dashboard-produtor', { user, loja } );
+  return res.render('dashboard-produtor', { user, loja } );
 };
 
 exports.loja = (req, res) => {
-  res.render('404');
+  return res.render('404');
 };
 
 exports.estoque = async (req, res) => {
@@ -28,7 +28,7 @@ exports.estoque = async (req, res) => {
 
     const produtos = await Loja.buscarProdutos(loja.id);
 
-    res.render('estoque-produtos', { produtos, loja });
+    return res.render('estoque-produtos', { produtos, loja });
 
   }catch(e) {
     console.log(e);
@@ -45,11 +45,11 @@ exports.excluirProduto = async (req, res) => {
 
     if(!produto) {
       req.flash('success', 'Seu produto foi deletado com sucesso.');
-      this.estoque(req, res);
+    }else {
+      req.flash('success', 'Algo de errado aconteceu, tente excluir novamente.');
     }
 
-    req.flash('success', 'Algo de errado aconteceu, tente excluir novamente.');
-    this.estoque(req, res);
+    return res.redirect('/loja/estoque');
 
   }catch(e) {
     console.log(e);
@@ -91,7 +91,7 @@ exports.enviarCadastro = async (req, res) => {
 };
 
 exports.redirectCadastrarProduto = async (req, res) => {
-  res.render('cadastrar-produto');
+  return res.render('cadastrar-produto');
 };
 
 exports.cadastrarProduto = async (req, res) => {
@@ -115,7 +115,7 @@ exports.cadastrarProduto = async (req, res) => {
 
     req.flash('success', 'Seu produto foi criado com sucesso.');
     req.session.save(function () {
-      res.redirect('/loja/dashboard');
+      return res.redirect('/loja/estoque');
     });
   
   }catch (e) {
