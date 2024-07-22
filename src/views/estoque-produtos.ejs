@@ -61,7 +61,7 @@
                             <div class="nome-preco"><h3><%= produto.nome %></h3>
                                  <h4>R$ <%= produto.valor %></h4>
                             </div>
-                            <h5>Ref: <%= produto.id %></h5>
+                            <h5>Ref: <%= produto._id %></h5>
                             <p>Descrição do produto:</p>
                             <p>
                                 <%= produto.descricao %>
@@ -70,8 +70,8 @@
         
                         <div class="label-produto">
                             <h5>Categoria</h5>
-                            <a href="/loja/estoque/editar/<%= produto.id %>"><button class="botao-editar">EDITAR PRODUTO</button></a>
-                            <a href="/loja/estoque/excluir/<%= produto.id %>"><button class="botao-excluir">EXCLUIR PRODUTO</button></a>
+                            <a href="/loja/estoque/<%= produto._id %>"><button class="botao-editar">EDITAR PRODUTO</button></a>
+                            <a href="/loja/estoque/excluir/<%= produto._id %>"><button class="botao-excluir">EXCLUIR PRODUTO</button></a>
                         </div>
                     </div>
                 <% }); %>

@@ -112,6 +112,11 @@ Loja.buscarProdutos = async function(idLoja) {
   return produtos;
 }
 
+Loja.buscarProduto = async function(id) {
+  const produto = await new Produto().getProduto(id);
+  return produto;
+}
+
 Loja.buscaPorId = async function(id) {
   if(typeof id !== 'string') return;
   const loja = await LojaModel.findById(id);

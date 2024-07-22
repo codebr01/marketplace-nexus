@@ -46,10 +46,23 @@ class Produto {
     const produtos = await ProdutoModel.find({ idLoja });
     return produtos;
   }
+  
+  async getProduto(id) {
+    const produto = await ProdutoModel.findById(id);
+    return produto;
+  }
 
   async excluirProduto(id) {
-    const produto = await ProdutoModel.findOneAndDelete({ id });
+    const produto = await ProdutoModel.findOneAndDelete({ _id: id });
     return produto;
+  }
+
+  async editProduto (id) {
+    if (typeof id !== 'string') return;
+  
+    if (this.errors.length > 0) return;
+  
+    this.produto = await ProdutoModel.findByIdAndUpdate(id, this.body, { new: true });
   }
   
 }

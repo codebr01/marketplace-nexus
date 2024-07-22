@@ -91,7 +91,8 @@ exports.enviarCadastro = async (req, res) => {
 };
 
 exports.redirectCadastrarProduto = async (req, res) => {
-  return res.render('cadastrar-produto');
+  const produto = {};
+  return res.render('cadastrar-produto', { produto });
 };
 
 exports.cadastrarProduto = async (req, res) => {
@@ -119,6 +120,49 @@ exports.cadastrarProduto = async (req, res) => {
     });
   
   }catch (e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
+
+
+exports.redirectEditarProduto = async function(req, res) {
+
+  
+  if(!req.params.id) return res.render('404');
+
+  const produto = await Loja.buscarProduto(req.params.id);
+
+  if(!produto) return res.render('404');
+
+  return res.render('cadastrar-produto', { produto });
+};
+
+exports.editarProduto = async (req, res) => {
+
+  try {
+    if(!req.params.id) return res.render('404');
+
+    const { loja } = req.session;
+
+    req.body.idLoja = loja.id;
+
+    const produto = new Produto(req.body);
+
+    await produto.editProduto(req.params.id);
+
+    if(produto.errors.length > 0) {
+      req.flash('errors', produto.errors);
+      req.session.save(() => res.redirect(`/loja/estoque`));
+      return;
+    }
+
+
+    req.flash('success', 'Produto editado com sucesso.');
+    req.session.save(() => res.redirect(`/loja/estoque`));
+    return;
+  } catch(e) {
     console.log(e);
     return res.render('404');
   }
