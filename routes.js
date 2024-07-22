@@ -28,6 +28,11 @@ route.get('/loja', lojaController.loja);
 route.get('/loja/cadastro', lojaController.cadastroLoja);
 route.get('/loja/cadastrar', lojaController.cadastrarLoja);
 route.post('/loja/enviarCadastro', lojaController.enviarCadastro);
+route.get('/loja/dashboard', lojaController.dashboard);
+route.get('/loja/estoque', lojaController.estoque);
+route.get('/loja/cadastrar/produto', lojaController.redirectCadastrarProduto);
+route.post('/loja/cadastrar/produto/cadastro', lojaController.cadastrarProduto);
+route.get('/loja/estoque/excluir/:id', lojaController.excluirProduto);
 
 // Rota de Logout
 route.get('/logout', loginController.logout);

@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcryptjs = require('bcryptjs');
+const { v4: uuidv4 } = require('uuid');
 
 const LoginSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  usuario: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true }
 });
@@ -17,10 +20,12 @@ class Login {
   }
 
   async login() {
-    this.valida();
+
+    await this.valida();
+
     if(this.errors.length > 0) return;
 
-    this.user = await LoginModel.findOne({email: this.body.email});  
+    this.user = await LoginModel.findOne({usuario: this.body.usuario});  
     
     if (!this.user) {
       this.errors.push('Usuário não existe.');
@@ -36,6 +41,7 @@ class Login {
   }
 
   async register() {
+
     this.validaRegister();
 
     if(this.errors.length > 0) return;
@@ -47,6 +53,8 @@ class Login {
     const salt = bcryptjs.genSaltSync();
     this.body.password = bcryptjs.hashSync(this.body.password, salt);
 
+    this.body.id = uuidv4();
+
     this.user = await LoginModel.create(this.body);
   }
 
@@ -54,15 +62,12 @@ class Login {
     this.user = await LoginModel.findOne({email: this.body.email});
     
     if (this.user) this.errors.push('Já existe um usuário com este email.');
-    
 
   }
 
-  valida() {
+  async valida() {
 
-    this.cleanUp(); 
-
-    if(!validator.isEmail(this.body.email)) this.errors.push('Email inválido');
+    this.cleanUp();
 
     if(this.body.password.length < 3 || this.body.password.length > 50) this.errors.push('Senha precisa ter entre 3 e 50 caracteres');
   }
@@ -70,7 +75,7 @@ class Login {
   cleanUp() {
 
     this.body = {
-      email: this.body.email,
+      usuario: this.body.usuario,
       password: this.body.password
     };
   }
@@ -87,6 +92,7 @@ class Login {
   cleanUpRegister() {
 
     this.body = {
+      usuario: this.body.usuario,
       email: this.body.email,
       password: this.body.password[0]
     };
