@@ -4,7 +4,6 @@ exports.index = async (req, res) => {
     res.render('index', { user });
   }else {
     const { user } = req.session;
-    console.log(user);
     res.render('index', { user });
   }
 };

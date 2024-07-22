@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const ValidaCPF = require('../../public/assets/js/ValidaCPF');
+const { v4: uuidv4 } = require('uuid');
+const Produto = require('../models/ProdutoModel');
 
 const LojaSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  idProdutor: { type: String, required: true },
   nomeProdutor: { type: String, required: true },
   sobrenomeProdutor: { type: String, required: false , default: ''},
   cpfProdutor: { type: String, required: false , default: ''}, // validar
@@ -31,14 +35,13 @@ function Loja(body) {
 Loja.prototype.register = async function() {
   this.valida();
   if (this.errors.length > 0) return;
+  this.body.id = uuidv4();
   this.loja = await LojaModel.create(this.body);
 };
 
 Loja.prototype.valida = function() {
 
   this.cleanUp();
-
-  console.log(this.body);
 
   if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('Email inválido');
   
@@ -63,7 +66,6 @@ Loja.prototype.valida = function() {
 Loja.prototype.validarTelefone = async function(telefone) {
   try {
     const telefoneExistente = await LojaModel.findOne({ telefone: telefone });
-    console.log(telefoneExistente);
   }catch(err) {
     this.errors.push('Erro ao verificar o telefone.');
   }
@@ -77,6 +79,7 @@ Loja.prototype.cleanUp = function() {
   }
 
   this.body = {
+    idProdutor: this.body.idProdutor,
     nomeProdutor: this.body.nome,
     sobrenomeProdutor: this.body.sobrenome,
     cpfProdutor: this.body.cpf,
@@ -104,6 +107,11 @@ Loja.prototype.edit = async function(id) {
   this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true });
 }
 
+Loja.buscarProdutos = async function(idLoja) {
+  const produtos = await new Produto().getProdutos(idLoja);
+  return produtos;
+}
+
 Loja.buscaPorId = async function(id) {
   if(typeof id !== 'string') return;
   const loja = await LojaModel.findById(id);
@@ -116,15 +124,10 @@ Loja.buscaPorEmail = async function(email) {
   return loja;
 }
 
-Loja.buscaContatos = async function() {
-  const contatos = await ContatoModel.find().sort({ criadoEm: -1 });
-  return contatos;
-}
-
-Loja.delete = async function(id) {
+Loja.excluirProduto = async function(id) {
   if(typeof id !== 'string') return;
-  const contato = await ContatoModel.findOneAndDelete({ _id: id });
-  return contato;
+  const produto = await new Produto().excluirProduto(id);
+  return produto;
 }
 
 module.exports = Loja;

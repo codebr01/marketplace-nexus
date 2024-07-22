@@ -33,7 +33,10 @@ exports.produtorRegistrar = async function (req, res) {
       return;
     }
 
+    req.session.user = produtor.user;
+
     req.flash('success', 'Seu usuário foi criado com sucesso.');
+    
     req.session.save(function () {
       return res.redirect('/loja/cadastro');
     });
@@ -57,9 +60,12 @@ exports.produtorLogar = async function (req, res) {
     }
 
     req.flash('success', 'Login realizado com sucesso.');
+
     req.session.user = login.user;
     const { user } = req.session;
+
     const lojaExists = await Loja.buscaPorEmail(user.email);
+
     if(!lojaExists) {
       req.flash('success', 'Você não tem loja, cadastre para continuar.');
       req.session.save(function () {
@@ -67,8 +73,9 @@ exports.produtorLogar = async function (req, res) {
       });
       return;
     }else {
+      req.session.loja = lojaExists;
       req.session.save(function () {
-        return res.render('output');
+        return res.redirect('/loja/dashboard');
       });
     }
   } catch (e) {
@@ -79,6 +86,9 @@ exports.produtorLogar = async function (req, res) {
 
 exports.register = async function (req, res) {
   try {
+
+    console.log(req.body);
+
     const login = new Login(req.body);
 
     await login.register();
@@ -86,14 +96,14 @@ exports.register = async function (req, res) {
     if (login.errors.length > 0) {
       req.flash('errors', login.errors);
       req.session.save(function () {
-        return res.redirect('/login');
+        return res.redirect('/');
       });
       return;
     }
 
     req.flash('success', 'Seu usuário foi criado com sucesso.');
     req.session.save(function () {
-      return res.redirect('/login');
+      return res.redirect('/cliente/register');
     });
   } catch (e) {
     console.log(e);
@@ -103,6 +113,9 @@ exports.register = async function (req, res) {
 
 exports.login = async function (req, res) {
   try {
+
+    console.log(req.body);
+
     const login = new Login(req.body);
     await login.login();
 

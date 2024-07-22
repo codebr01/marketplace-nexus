@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcryptjs = require('bcryptjs');
-const ValidaCPF = require('../../public/assets/js/ValidaCPF')
+const ValidaCPF = require('../../public/assets/js/ValidaCPF');
+const { types } = require('@babel/core');
+const { v4: uuidv4 } = require('uuid');
 
 const ProdutorSchema = new mongoose.Schema({
+  id: { type: String, required: true },
   nome: {type: String, required: true},
   sobrenome: {type: String, required: true},
   email: { type: String, required: true },
@@ -51,6 +54,8 @@ class Produtor {
     
     const salt = bcryptjs.genSaltSync();
     this.body.password = bcryptjs.hashSync(this.body.password, salt);
+
+    this.body.id = uuidv4();
 
     this.user = await ProdutorModel.create(this.body);
   }
