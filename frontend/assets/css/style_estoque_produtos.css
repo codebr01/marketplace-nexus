@@ -112,11 +112,18 @@
 }
 
 .botao-editar{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
     background-color: #0AA6A6;
     color: #35384B;
 }
 
 .botao-excluir{
+    border: none;
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
     background-color: #ff00007a;
     color: #580000;
 }
