@@ -33,6 +33,8 @@ route.get('/loja/estoque', lojaController.estoque);
 route.get('/loja/cadastrar/produto', lojaController.redirectCadastrarProduto);
 route.post('/loja/cadastrar/produto/cadastro', lojaController.cadastrarProduto);
 route.get('/loja/estoque/excluir/:id', lojaController.excluirProduto);
+route.get('/loja/estoque/:id', lojaController.redirectEditarProduto);
+route.post('/loja/estoque/:id/editar', lojaController.editarProduto);
 
 // Rota de Logout
 route.get('/logout', loginController.logout);

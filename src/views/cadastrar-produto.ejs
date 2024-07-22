@@ -29,22 +29,26 @@
         <section>
            <div id="form-produtor">
                 <h2>Cadastrar Produto</h2>
+                <% if(produto._id) { %>
+                <form class="login-form" action="/loja/estoque/<%= produto._id %>/editar" method="post">
+                <% }else { %>
                 <form class="login-form" action="/loja/cadastrar/produto/cadastro" method="post">
+                <% } %>
                     <input type="hidden" name="_csrf" value=<%=csrfToken %>>
                     <div class="forms-clas">
                         <div class="forms-clas2">
                             <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
+                            <input value="<%= produto.nome %>" type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
                         </div>
 
                         <div class="forms-clas2" id="segundo">
-                            <label for="sobrenome">Valor</label>
-                            <input type="text" id="valor" name="valor" placeholder="Digite o valor do prdouto" required>
+                            <label for="valor">Valor</label>
+                            <input  value="<%= produto.valor %>" type="text" id="valor" name="valor" placeholder="Digite o valor do prdouto" required>
                         </div>
                     </div>
 
                     <label for="descricao">Descrição do Produto</label>
-                    <input type="text" id="descricao" name="descricao" required>
+                    <input  value="<%= produto.descricao %>" type="text" id="descricao" name="descricao" required>
 
                     <div class="forms-clas">
                         <div class="forms-clas2">
