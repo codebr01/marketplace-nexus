@@ -69,3 +69,66 @@
 #circulo > img{
   margin-top: 10px;
 }
+
+.botoes{
+  margin: 0 auto;
+}
+
+.botoes button{
+  width: 310px;
+}
+
+#botao2{
+  background-color: lightgray;
+  color: #000;
+}
+
+#botao2:hover{
+  background-color: gray;
+}
+
+.botoes button:hover{
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#botao:hover{
+  background-color: #aacc55;
+}
+
+#descricao{
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.imagem-input{
+  margin-bottom: 5px;
+  background-color: #FFF;
+}
+
+#imagem1, #imagem2, #imagem3{
+  padding-top: 10px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+input[type='file'] {
+  display: none
+}
+
+.selecao-arquivo{
+  font-size: 12px;
+  background-color: #FFF;
+  border-radius: 5px;
+  color: #35384b;
+  cursor: pointer;
+  margin: 5px;
+  padding: 8px 20px;
+  border: #35384b42 solid 1px;
+}
+
+.selecao-arquivo > img{
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
