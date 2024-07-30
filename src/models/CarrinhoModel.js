@@ -3,55 +3,52 @@ const { types } = require('@babel/core');
 const { v4: uuidv4 } = require('uuid');
 
 const CarrinhoSchema = new mongoose.Schema({
-  id: { type: String, required: true },
   idCliente: { type: String, required: true },
-  produtos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Produto', required: false }],
-  valor: { type: Number, required: false },
+  produtos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Produto', required: true }],
+  precoTotal: { type: String, required: false }
 });
 
 const CarrinhoModel = mongoose.model('Carrinho', CarrinhoSchema);
 
 class Carrinho {
-  constructor() {
-    this.body = {};
-    this.produtos = [];
-    this.errors = [];
-    this.carrinho = null;
+  constructor(carrinho) {
+    this.carrinho = carrinho;
   }
 
-  async getCarrinho(id) {
-    const carrinho = await CarrinhoModel.findOne({ idCliente: id });
-    return carrinho;
-  }
-
-
-  async register(idCliente) {
-
-    this.body.id = uuidv4();
-
-    this.body.idCliente = idCliente
-
-    this.carrinho = await CarrinhoModel.create(this.body);
-    
-  }
-
-  async adicionar() {
+  async guardarCarrinho(carrinho) {
 
     this.cleanUp();
 
-    this.body.id = uuidv4();
+    this.carrinho = carrinho
+  
+    console.log(this.carrinho);
 
-    this.Carrinho = await CarrinhoModel.create(this.body);
+    this.carrinho = await CarrinhoModel.create(this.carrinho);
     
+  }
+
+  async getCarrinho(idCliente) {
+    const carrinho = await CarrinhoModel.findOne({ idCliente });
+    return carrinho;
+  }
+
+  async atualizarCarrinho(id, carrinho) {
+    
+    this.carrinho = await CarrinhoModel.findByIdAndUpdate(id, carrinho, { new: true });
+    
+  }
+
+  async apagarCarrinho(idCliente) {
+    const carrinho = await CarrinhoModel.findOneAndDelete({ idCliente: idCliente });
+    return carrinho;
   }
 
   cleanUp() {
 
-    this.body = {
-      idLoja: this.body.idLoja,
-      nome: this.body.nome,
-      valor: this.body.valor,
-      descricao: this.body.descricao
+    this.carrinho = {
+      idCliente: this.carrinho.idCliente,
+      produtos: this.carrinho.produtos,
+      precoTotal: this.carrinho.precoTotal
     };
   }
 

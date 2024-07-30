@@ -32,10 +32,10 @@
                     <h1>Produtos no Carrinho</h1>
                 </div>
 
-            <% if(produtos.length > 0) { %>
+            <% if(carrinho.produtos.length > 0) { %>
                 <a href=""><button class="botao-realizar-compra">REALIZAR COMPRA</button></a>
             </div>
-                <% produtos.forEach(produto => { %>
+                <% carrinho.produtos.forEach(produto => { %>
                     <div class="container-produto">                
                         <div class="info-produto">
                             <div class="nome-preco"><h3><%= produto.nome %></h3>

@@ -52,8 +52,8 @@ class Produto {
     return produtos;
   }
   
-  async getProduto(id) {
-    const produto = await ProdutoModel.findById(id);
+  async getProduto(produtoId) {
+    const produto = await ProdutoModel.findById({ _id: produtoId });
     return produto;
   }
 
