@@ -1,6 +1,8 @@
 const Login = require('../models/LoginModel');
 const Produtor = require('../models/ProdutorModel');
 const Loja = require('../models/LojaModel');
+const Carrinho = require('../models/CarrinhoModel');
+const Produto = require('../models/ProdutoModel');
 
 exports.index = (req, res) => {
   if(req.session.user) return res.render('output');
@@ -111,7 +113,6 @@ exports.register = async function (req, res) {
 
 exports.login = async function (req, res) {
   try {
-
     const login = new Login(req.body);
     await login.login();
 
@@ -125,6 +126,24 @@ exports.login = async function (req, res) {
 
     req.flash('success', 'Login realizado com sucesso.');
     req.session.user = login.user;
+    const carrinho = await new Carrinho().getCarrinho(login.user.id);
+
+    if (!carrinho) {
+      req.session.carrinho = {
+        idCliente: login.user.id,
+        produtos: [],
+        precoTotal: 0,
+      };
+    } else {
+      let produtos = [];
+      req.session.carrinho = carrinho;
+      for (const produtoId of req.session.carrinho.produtos) {
+        const produto = await new Produto().getProduto(produtoId);
+        produtos.push(produto);
+      }
+      req.session.carrinho.produtos = produtos;
+    }
+
     req.session.save(function () {
       return res.redirect('/');
     });
@@ -134,7 +153,85 @@ exports.login = async function (req, res) {
   }
 };
 
+
+exports.verCarrinho = async function (req, res) {
+  try {
+
+    const { user } = req.session;
+    const { carrinho } = req.session;
+    
+    return res.render('carrinho', { user, carrinho });
+
+  } catch (e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
+exports.adicionarCarrinho = async function (req, res) {
+  try {
+
+    const { idCliente, idProduto } = req.params;
+
+    const produto = await new Produto().getProduto(idProduto);
+
+    req.session.carrinho.produtos.push(produto);
+    
+    return res.redirect('/');
+
+  } catch (e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
+exports.excluirProdutoNoCarrinho = async function (req, res) {
+  try {
+
+    const { idCliente, idProduto } = req.params;
+
+    const index = req.session.carrinho.produtos.findIndex(produto => produto._id === idProduto);
+
+    if (index !== -1) {
+      req.session.carrinho.produtos.splice(index, 1);
+    } else {
+      req.flash('errors', 'Objeto não encontrado');
+    }
+    
+    return res.redirect(`/cliente/${idCliente}/carrinho`);
+
+  } catch (e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
 exports.logout = async function (req, res) {
+
+  const { produtos } = req.session.carrinho;
+  const { user } = req.session;
+
+  let carrinho = await new Carrinho().getCarrinho(user.id);
+  
+  if(!carrinho) {
+    
+    const novoCarrinho = new Carrinho(req.session.carrinho);
+    await novoCarrinho.guardarCarrinho(novoCarrinho.carrinho);
+    
+  }else{
+    if ( produtos.length > 0 ) {
+    
+      const { carrinho } = req.session;
+      const { _id } = req.session.carrinho
+  
+      await new Carrinho().atualizarCarrinho(_id, carrinho);
+    }else {
+      const { idCliente } = req.session.carrinho;
+      await new Carrinho().apagarCarrinho(idCliente);
+    }
+  }
+
   req.session.destroy();
+
   return res.redirect('/');
 };

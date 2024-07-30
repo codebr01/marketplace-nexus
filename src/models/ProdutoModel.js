@@ -42,13 +42,18 @@ class Produto {
     };
   }
 
+  async getAllProdutos() {
+    const produtos = await ProdutoModel.find();
+    return produtos;
+  }
+
   async getProdutos(idLoja) {
     const produtos = await ProdutoModel.find({ idLoja });
     return produtos;
   }
   
-  async getProduto(id) {
-    const produto = await ProdutoModel.findById(id);
+  async getProduto(produtoId) {
+    const produto = await ProdutoModel.findById({ _id: produtoId });
     return produto;
   }
 
