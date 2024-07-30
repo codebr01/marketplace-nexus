@@ -1,6 +1,8 @@
 const Login = require('../models/LoginModel');
 const Produtor = require('../models/ProdutorModel');
 const Loja = require('../models/LojaModel');
+const Carrinho = require('../models/CarrinhoModel');
+const Produto = require('../models/ProdutoModel');
 
 exports.index = (req, res) => {
   if(req.session.user) return res.render('output');
@@ -113,6 +115,7 @@ exports.login = async function (req, res) {
   try {
 
     const login = new Login(req.body);
+
     await login.login();
 
     if (login.errors.length > 0) {
@@ -125,9 +128,65 @@ exports.login = async function (req, res) {
 
     req.flash('success', 'Login realizado com sucesso.');
     req.session.user = login.user;
+    req.session.carrinho = {
+      produtos: []
+    };
     req.session.save(function () {
       return res.redirect('/');
     });
+  } catch (e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
+exports.verCarrinho = async function (req, res) {
+  try {
+
+    const { id } = req.params;
+    const { user } = req.session;
+    const { produtos } = req.session.carrinho;
+    
+    return res.render('carrinho', { user, produtos });
+
+  } catch (e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
+exports.adicionarCarrinho = async function (req, res) {
+  try {
+
+    const { idCliente, idProduto } = req.params;
+
+    const produto = await new Produto().getProduto(idProduto);
+
+    req.session.carrinho.produtos.push(produto);
+    
+    return res.redirect('/');
+
+  } catch (e) {
+    console.log(e);
+    return res.render('404');
+  }
+};
+
+exports.excluirProdutoNoCarrinho = async function (req, res) {
+  try {
+
+    const { idCliente, idProduto } = req.params;
+
+    const index = req.session.carrinho.produtos.findIndex(produto => produto._id === idProduto);
+
+    if (index !== -1) {
+      req.session.carrinho.produtos.splice(index, 1);
+    } else {
+      req.flash('errors', 'Objeto não encontrado');
+    }
+    
+    return res.redirect(`/cliente/${idCliente}/carrinho`);
+
   } catch (e) {
     console.log(e);
     return res.render('404');

@@ -16,6 +16,9 @@ route.get('/login/index', loginController.index);
 route.get('/cliente', loginController.redirectCliente);
 route.post('/cliente/login', loginController.login);
 route.post('/cliente/register', loginController.register);
+route.get('/cliente/:id/carrinho',loginController.verCarrinho);
+route.get('/cliente/:idCliente/carrinho/:idProduto',loginController.adicionarCarrinho);
+route.get('/cliente/:idCliente/excluir/:idProduto',loginController.excluirProdutoNoCarrinho);
 
 //rotas de produtor
 route.get('/produtor/login', loginController.redirectProdutorLogin);

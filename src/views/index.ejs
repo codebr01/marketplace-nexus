@@ -28,7 +28,7 @@
 
     <% if(user !== undefined) { %>
       <div class="opcoes-usuario">
-        <a href="#">
+        <a href="/cliente/<%= user._id %>/carrinho">
           <img src="/assets/img/icone-carrinho.png" alt="">
         </a>
       </div>
@@ -118,11 +118,41 @@
     </ul>
   </nav>
 
-  <section id="banner-principal">
+  <!-- <section id="banner-principal">
 
-  </section>
+  </section> -->
 
   <section class="produtos">
+
+    <div class="titulo-produtos">
+      <img src="/assets/img/icone-nexus.png" alt="">
+      <h2>Produtos</h2>
+    </div>
+      <div class="container-cards">
+    <% if(produtos.length > 0) { %>
+      <% produtos.forEach(produto => { %>
+            <div class="card">
+              <img src="/assets/img/produto1.png" alt="">
+              <h3><%= produto.nome %></h3>
+              <p>R$ <%= produto.valor %></p>
+              <div class="informacoes-marca">
+                <div class="circulo"></div>
+                <h5><%= produto._id %></h5>
+              </div>
+              <% if ( user !== undefined ) { %>
+                <button><img src="/assets/img/icone-carrinho2.png"><a href="/cliente/<%= user._id %>/carrinho/<%= produto._id %>">ADICIONAR AO CARRINHO</a></button>
+              <% }else { %>
+                <button><img src="/assets/img/icone-carrinho2.png"><a href="/">ADICIONAR AO CARRINHO</a></button>
+              <% }; %>
+            </div>
+      <% }); %>
+      </div>
+    <% }else { %>
+      <div>
+          <h1>SEM PRODUTOS CADASTRADOS</h1>
+      </div>
+    <% } %>
+
     <div class="titulo-produtos">
       <img src="/assets/img/icone-nexus.png" alt="">
       <h2>Ofertas</h2>

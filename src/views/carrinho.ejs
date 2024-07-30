@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - <%= user.usuario %></title>
+
+    <link rel="stylesheet" href="/assets/css/style_login.css">
+    <link rel="stylesheet" href="/assets/css/style_carrinho.css">
+</head>
+<body>
+    <div id="cabecalho">
+        <p>Produtos Sustentáveis
+            <img src="/assets/img/icone-nexus.png" alt="icone-nexus">
+        </p>
+        
+    </div>
+
+    <header>
+        <a href="/">
+            <div id="logo">
+                <img src="/assets/img/icone-nexus.png" alt="" id="icone-nx">
+                <img src="/assets/img/nexus.png" alt="" id="nome-nx">
+            </div>
+        </a>
+    </header>
+    <main class="produtos">
+
+        <section class="container-produtos">
+            <div class="header-produtos">
+                <div class="titulo">
+                    <h1>Produtos no Carrinho</h1>
+                </div>
+
+            <% if(produtos.length > 0) { %>
+                <a href=""><button class="botao-realizar-compra">REALIZAR COMPRA</button></a>
+            </div>
+                <% produtos.forEach(produto => { %>
+                    <div class="container-produto">                
+                        <div class="info-produto">
+                            <div class="nome-preco"><h3><%= produto.nome %></h3>
+                                 <h4>R$ <%= produto.valor %></h4>
+                            </div>
+                            <h5>Ref: <%= produto._id %></h5>
+                            <p>Descrição do produto:</p>
+                            <p>
+                                <%= produto.descricao %>
+                            </p>
+                        </div>
+        
+                        <div class="label-produto">
+                            <h5>Categoria</h5>
+                            <a href="/cliente/<%= user._id %>/excluir/<%= produto._id %>"><button class="botao-excluir">EXCLUIR PRODUTO</button></a>
+                        </div>
+                    </div>
+                <% }); %>
+            <% }else { %>
+            </div>
+                <div>
+                    <h1>SEM PRODUTOS NO CARRINHO</h1>
+                </div>
+            <% } %>
+            
+        </section>
+        
+        
+    </main>
+
+</body>
+</html>
