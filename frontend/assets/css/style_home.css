@@ -68,21 +68,43 @@
   margin-right: 5px;
 }
 
-.card > button{
+.card > .botoesProduto > button{
   width: 240px;
   height: 30px;
   background-color: #C3F250;
   color: #3C5401;
   border: none;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.card > button > img{
+.botoesProduto {
+  display: flex;
+  justify-content: space-evenly; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 5px; /* Espaço entre os botões, se necessário */
+}
+
+.botoesProduto button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.botoesProduto button > img{
   width: 20px;
   height: 20px;
-  margin-right: 10px;
+  margin-left: 20px;
+}
+
+.botoesProduto a {
+  text-decoration: none;
+  color: inherit; /* Herda a cor do botão ou imagem */
+  margin-left: 5px; /* Espaço entre a imagem e o texto, se necessário */
 }
 
 .categorias{

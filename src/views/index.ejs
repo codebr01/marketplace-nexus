@@ -139,11 +139,13 @@
                 <div class="circulo"></div>
                 <h5><%= produto._id %></h5>
               </div>
-              <% if ( user !== undefined ) { %>
-                <button><img src="/assets/img/icone-carrinho2.png"><a href="/cliente/<%= user._id %>/carrinho/<%= produto._id %>">ADICIONAR AO CARRINHO</a></button>
-              <% }else { %>
-                <button><img src="/assets/img/icone-carrinho2.png"><a href="/">ADICIONAR AO CARRINHO</a></button>
-              <% }; %>
+              <div class="botoesProduto">
+                <% if ( user !== undefined ) { %>
+                  <button><img src="/assets/img/icone-carrinho2.png"><a href="/cliente/<%= user._id %>/carrinho/<%= produto._id %>">ADICIONAR AO CARRINHO</a></button>
+                <% }else { %>
+                  <button><img src="/assets/img/icone-carrinho2.png"><a href="/">ADICIONAR AO CARRINHO</a></button>
+                <% }; %>
+              </div>
             </div>
       <% }); %>
       </div>

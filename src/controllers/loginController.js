@@ -208,6 +208,12 @@ exports.excluirProdutoNoCarrinho = async function (req, res) {
 
 exports.logout = async function (req, res) {
 
+  if( req.session.loja ) {
+    req.session.destroy();
+
+    return res.redirect('/');
+  }
+
   const { produtos } = req.session.carrinho;
   const { user } = req.session;
 
